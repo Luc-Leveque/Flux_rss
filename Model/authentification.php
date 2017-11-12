@@ -12,8 +12,6 @@ function inscription($nom , $prenom , $mdp , $email , $login){
     $requete ->bindValue(":email",$email,PDO::PARAM_STR);
     $requete ->bindValue(":mdp",$mdp,PDO::PARAM_STR);
     $requete->execute();
-    
-    return $requete;
 }
 
 function login($mdp , $email){

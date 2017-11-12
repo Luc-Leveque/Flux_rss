@@ -1,5 +1,16 @@
 <?php
 
+function curl($lien){
+   
+    $curl = curl_init();
+    curl_setopt($curl,CURLOPT_URL,$lien);
+    curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+    $contenu = curl_exec($curl);
+    
+    return $contenu ;
+}
+
+
 function str_sub($contenu , $nb = 200){
     if(strlen($contenu)>200){
         return substr($contenu,0,200)."...";
