@@ -17,8 +17,9 @@ function inscription($nom , $prenom , $mdp , $email , $login){
 function login($mdp , $email){
         $alert="";
         global $bdd ;
-        $requete = $bdd->prepare("SELECT * FROM user WHERE  email=:email  ");
+        $requete = $bdd->prepare("SELECT * FROM user WHERE  email=:email and mdp =:mdp ");
         $requete ->bindValue(":email",$email,PDO::PARAM_STR);
+        $requete ->bindValue(":mdp",$mdp,PDO::PARAM_STR);
         $requete->execute();
     
         if($reponse = $requete->fetch()){
@@ -35,7 +36,7 @@ function login($mdp , $email){
 function cookie($id){
     $cookie_id = "user";
     $cookie_value = $id;
-    setcookie($cookie_id, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+    setcookie($cookie_id, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
 }
 
 function verif_cookie($cookie){

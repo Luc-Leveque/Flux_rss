@@ -20,8 +20,9 @@ while($data = $requete->fetch())
         <div class="panel-body">
             <div class="media">
                 <div class="media-body">
-                    <h4 class="media-heading"><?php echo $data['titre'] ; ?></h4>
-                    <?php echo $data['contenu'] ; ?>
+                    <?php 
+                    echo "<h4 class='media-heading'><a href='index?page=page_article&id_a=".$data['id_a']."'>".$data['titre']."</a></h4> " ; ?> 
+                    <?php echo str_sub($data['contenu']) ; ?>
                     <div class="clearfix"></div>
                     <a href="<?php echo $data['link'] ; ?>"><?php echo $data['link'] ; ?></a>             
                </div>
@@ -29,9 +30,9 @@ while($data = $requete->fetch())
         </div>
     </div>
 </div>
+    <?php   
+    }
 
-<?php
-}
 ?>
 
 

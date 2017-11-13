@@ -20,7 +20,7 @@ if(!isset($_COOKIE[$cookie_name])) {
         if($error == false){
             $alert = login(sha1($_POST['mdp']), $_POST['email']);
             echo $alert;
-            if(isset($_SESSION['id_u']) && isset($_POST['svm'])){
+            if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == true  && isset($_POST['svm'])){
                 cookie($_SESSION['id_u']);
                 header('Location:index.php?page=accueil');
             }
@@ -29,7 +29,7 @@ if(!isset($_COOKIE[$cookie_name])) {
 }
 
 if(isset($_COOKIE[$cookie_name])){
-    $cookie  = $_COOKIE[$cookie_name] ; 
+   $cookie  = $_COOKIE[$cookie_name] ; 
    verif_cookie($cookie);{
     header('Location:index.php?page=accueil'); 
     }

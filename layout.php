@@ -39,13 +39,14 @@
                                     ?>
                                     </ul>
                                   </li>
+                                    <li><a href="index?page=article">Tous les articles</a></li>
                                     <li><a href="index?page=gerer_flux">Gerer Flux</a></li>
                                     <li><a href="index?page=gerer_cat">Gerer categorie </a>
                                     <li><a href="index?page=rss">Mettre à jour le Flux</a>
                                     </li>    
                                 </ul>
                                 <?php
-                                if(isset($_SESSION['id_u'])){
+                                if(isset($_SESSION['connecte']) && $_SESSION['connecte'] == true){
                                 
                                     echo"<ul class='nav navbar-nav navbar-right'>";
                                     echo"<li><a href='index?page=logout'><span class='glyphicon glyphicon-log-in'></span> Logout</a></li>";

@@ -15,7 +15,7 @@ define('CORE',ROOT.DS.'core');
 
 
 if(!isset($_GET['page']) || $_GET['page'] =="")
-            $page = "accueil";
+            $page = "login";
         else
         {
             if(!file_exists("controller/".$_GET['page'].".php"))

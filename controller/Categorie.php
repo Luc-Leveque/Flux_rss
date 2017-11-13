@@ -23,7 +23,7 @@ foreach($articles as $k=> $v)
             <div class="media">
                 <div class="media-body">
                     <?php 
-        echo "<h4 class='media-heading'><a href='index?page=page_article&id_a=".$article['id_a']."'>".$article['titre']."</a></h4> " ; ?> 
+                    echo "<h4 class='media-heading'><a href='index?page=page_article&id_a=".$article['id_a']."'>".$article['titre']."</a></h4> " ; ?> 
                     <?php echo str_sub($article['contenu']) ; ?>
                     <div class="clearfix"></div>
                     <a href="<?php echo $article['link'] ; ?>"><?php echo $article['link'] ; ?></a>             
