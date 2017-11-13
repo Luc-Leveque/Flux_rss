@@ -43,7 +43,5 @@ while($data = $requete->fetch())
         </div>
     </div>
 </div>
-
-
-
 <?php }
+
