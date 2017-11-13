@@ -98,7 +98,8 @@ if(isset($_POST['submit'])){
                                         <td>
                                             <?php echo $data['nom']; ?>
                                         </td>
-                                        <td> <a href='<?php echo "index.php?page=Supprimer_flux&id_t=".$data['id_t']."&id_f=".$data['id_f']; ?>'>Supprimer </a> </td>
+                                        <td> <a href='<?php echo "index.php?page=Modifier_flux&id_t=".$data['id_t']."&id_f=".$data['id_f']; ?>'>Modifier </a> </td>
+                                        <td> <a href='<?php echo "index.php?page=Supprimer_flux&supp=flux&id_t=".$data['id_t']."&id_f=".$data['id_f']; ?>'>Supprimer </a> </td>
                                     </tr>
                                 </tbody>
                                 <?php

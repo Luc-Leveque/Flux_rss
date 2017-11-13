@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 12 Novembre 2017 à 11:23
+-- Généré le :  Lun 13 Novembre 2017 à 10:07
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -30,6 +30,15 @@ CREATE TABLE `appartenir` (
   `id_f` int(11) NOT NULL,
   `id_t` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `appartenir`
+--
+
+INSERT INTO `appartenir` (`id_f`, `id_t`) VALUES
+(0, 3),
+(2, 6),
+(3, 5);
 
 -- --------------------------------------------------------
 
@@ -67,8 +76,17 @@ CREATE TABLE `commentaire` (
 
 CREATE TABLE `flux` (
   `id_f` int(11) NOT NULL,
+  `lien` varchar(255) NOT NULL,
   `titre` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `flux`
+--
+
+INSERT INTO `flux` (`id_f`, `lien`, `titre`) VALUES
+(2, '111111111111', 'Flux 1  test'),
+(3, '222222222222222', 'Flux 2 ');
 
 -- --------------------------------------------------------
 
@@ -80,6 +98,15 @@ CREATE TABLE `theme` (
   `id_t` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `theme`
+--
+
+INSERT INTO `theme` (`id_t`, `nom`) VALUES
+(4, 'Cat1'),
+(5, 'cat2'),
+(6, 'cat3');
 
 -- --------------------------------------------------------
 
@@ -170,12 +197,12 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `flux`
 --
 ALTER TABLE `flux`
-  MODIFY `id_f` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_f` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `theme`
 --
 ALTER TABLE `theme`
-  MODIFY `id_t` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_t` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
