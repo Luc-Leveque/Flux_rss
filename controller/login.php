@@ -28,12 +28,12 @@ if(!isset($_COOKIE[$cookie_name])) {
     } 
 }
 
-//if(isset($_COOKIE[$cookie_name])){
-//    $cookie  = $_COOKIE[$cookie_name] ; 
-//    verif_cookie($cookie);{
-//    header('Location:index.php?page=accueil'); 
-//    }
-//}
+if(isset($_COOKIE[$cookie_name])){
+    $cookie  = $_COOKIE[$cookie_name] ; 
+   verif_cookie($cookie);{
+    header('Location:index.php?page=accueil'); 
+    }
+}
 
 
 

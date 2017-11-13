@@ -3,9 +3,9 @@
 require "Model/article.php";
 
 
-$title = "Accueil";
+$cat = (int)$_GET['cat'];
 
-$articles = get_last_articles(0,10); 
+$articles = get_last_articles_by_cat(0,10,$cat); 
 
 require "view/accueil.php";
 

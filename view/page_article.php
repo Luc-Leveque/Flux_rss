@@ -21,6 +21,7 @@ foreach($articles as $article)
 <?php   
 }
 ?>
+<h3>Espace commentaire :</h3>
 <?php
 $req = "Select * from commentaire c, user u where u.id_u=c.id_u and id_a = $id_a ";
 $requete = $bdd->query($req);
@@ -29,8 +30,6 @@ while($data = $requete->fetch())
 {	
 ?>
 <div class="container">
-<h3>Espace commentaire :</h3>
-
 	<div class="row">
         <div class="comment-box">
             <div class="comment-head">

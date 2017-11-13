@@ -13,4 +13,5 @@
 
 	<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 </form>
+<a href="index?page=inscription">Pas encore inscrit</a>
 </div>

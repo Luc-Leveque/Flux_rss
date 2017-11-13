@@ -34,13 +34,14 @@
 
                                         while($data = $requete->fetch())
                                         {	
-                                           echo "<li value=".$data['id_t']."><a href='#'>".$data['nom']."</a></li>" ;
+                                           echo "<li value=".$data['id_t']."><a href='index?page=categorie&cat=".$data['id_t']."'>".$data['nom']."</a></li>" ;
                                         }
                                     ?>
                                     </ul>
                                   </li>
                                     <li><a href="index?page=gerer_flux">Gerer Flux</a></li>
                                     <li><a href="index?page=gerer_cat">Gerer categorie </a>
+                                    <li><a href="index?page=rss">Mettre à jour le Flux</a>
                                     </li>    
                                 </ul>
                                 <?php

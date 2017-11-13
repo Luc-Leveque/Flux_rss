@@ -85,3 +85,7 @@ function supprimer_cat($id_t){
 			':id_t' => $id_t
 			));
 }
+
+
+
+
