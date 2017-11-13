@@ -6,11 +6,13 @@ require "Model/authentification.php";
 $cookie_name = "user";
 
 if(!isset($_COOKIE[$cookie_name])) {
-        if(isset($_POST['submit'])){
+    if(isset($_POST['submit'])){
             $error = false;
+        
         if(!isset($_POST['email'])){
             $error = true;
         }
+        
         if(!isset($_POST['mdp']) || !preg_match("#^([A-Za-z0-9]{1,})$#",$_POST['mdp'])){
             $error = true;
         }
@@ -26,12 +28,12 @@ if(!isset($_COOKIE[$cookie_name])) {
     } 
 }
 
-if(isset($_COOKIE[$cookie_name])){
-    $cookie  = $_COOKIE[$cookie_name] ; 
-    verif_cookie($cookie);{
-    header('Location:index.php?page=accueil'); 
-    }
-}
+//if(isset($_COOKIE[$cookie_name])){
+//    $cookie  = $_COOKIE[$cookie_name] ; 
+//    verif_cookie($cookie);{
+//    header('Location:index.php?page=accueil'); 
+//    }
+//}
 
 
 
