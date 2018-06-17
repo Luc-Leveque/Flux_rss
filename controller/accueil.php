@@ -1,38 +1,28 @@
 <?php
 
-require "Model/article.php";
+require "Model/article.php"; ?>
 
 
-$title = "Accueil";
-
-$articles = get_last_articles(0,10); 
-
-require "view/accueil.php";
-
-foreach($articles as $k=> $v)
-{
-    $articles[$k]['contenu'] = str_sub($articles[$k]['contenu']);
-}
-    foreach($articles as $article)
-    {
-    ?>
-        
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="media">
-                <div class="media-body">
-                    <?php 
-        echo "<h4 class='media-heading'><a href='index?page=page_article&id_a=".$article['id_a']."'>".$article['titre']."</a></h4> " ; ?> 
-                    <?php echo str_sub($article['contenu']) ; ?>
-                    <div class="clearfix"></div>
-                    <a href="<?php echo $article['link'] ; ?>"><?php echo $article['link'] ; ?></a>             
-               </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-sm-10 col-md-offset-2">
+                <h1>Les derniers articles<?php if(!isset($_SESSION['connecte'])){ echo "(connectez vous pour voir plus de contenu)" ; } ?></h1>
             </div>
         </div>
     </div>
-</div>
-    <?php   
-    }
 
-?>
+
+    <?php 
+
+    
+$reponse = getLien();
+$curl = curl_init();
+curl_setopt($curl,CURLOPT_URL,$reponse['lien']);
+curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
+$contenu = curl_exec($curl);
+$xml = new simpleXMLElement($contenu);
+foreach($xml->channel->item as $v){
+    
+    require "view/accueil.php";
+    
+     } 

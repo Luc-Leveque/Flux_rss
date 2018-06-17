@@ -1,46 +1,31 @@
-
-<?php    
-foreach($articles as $article)
-    {
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-sm-10 col-md-offset-2">
+            <h3>Ce flux RSS est récupéré depuis <?= $reponse["titre"]; ?></h3>
+        </div>
+    </div>
+</div>
+<?php foreach($xml->channel->item as $v){
     ?>
-        
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <div class="media">
-                <div class="media-body">
-                    <a href="index?page=page_article&id_a="<?php echo  $article['id_a'] ;  ?>><h4 class="media-heading"><?php echo $article['titre'] ; ?></h4></a> 
-                    <?php echo $article['contenu']; ?>
-                    <div class="clearfix"></div>
-                    <a href="<?php echo $article['link'] ; ?>"><?php echo $article['link'] ; ?></a>             
-               </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php   
-}
-?>
-<h3>Espace commentaire :</h3>
-<?php
-$req = "Select * from commentaire c, user u where u.id_u=c.id_u and id_a = $id_a ";
-$requete = $bdd->query($req);
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-sm-10 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>
+                            <?= $v->title; ?>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
 
-while($data = $requete->fetch())
-{	
-?>
-<div class="container">
-	<div class="row">
-        <div class="comment-box">
-            <div class="comment-head">
-                <h6 class="comment-name by-author"><?= $data['login'] ?></h6>
-                <span><?= $data['date_post'] ?></span>
-            </div>
-            <div class="comment-content">
-            <?= $data['contenu'] ?>
+                    <?php $date = date_create($v->pubDate); 
+            echo $date->format("D, d M Y H:i:s"); ?>
+                        <div><?= $v->description; ?></div>
+                        <div>Retrouvez cette actualité directement sur <a href="<?= $v->guid; ?>" target="_blank"><?= $reponse['titre']; ?></a></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<?php }
+    <?php } ?>
 

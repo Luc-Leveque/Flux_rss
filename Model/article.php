@@ -37,6 +37,14 @@ function commenter($id_u ,$id_a ,$contenu){
     
 }
 
+function getLienSelonId($id)
+    {
+        global $bdd;
+        $requete = $bdd->query("SELECT * FROM flux WHERE id_f=".$id);
+        return $reponse = $requete->fetch();
+    }
+
+
 function get_last_articles_by_cat($deb= 0 , $fin = 10 , $cat){
     
     global $bdd ; 
@@ -50,5 +58,12 @@ function get_last_articles_by_cat($deb= 0 , $fin = 10 , $cat){
 }
 
 
+
+    function getLien()
+    {
+        global $bdd;
+        $requete = $bdd->query("SELECT lien FROM flux");
+        return $reponse = $requete->fetch();
+    }
 
 ?>

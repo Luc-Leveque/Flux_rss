@@ -29,20 +29,18 @@
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                      <?php
-                                        $req = "Select * from theme ";
+                                        $req = "Select * from flux ";
                                         $requete = $bdd->query($req);
 
                                         while($data = $requete->fetch())
                                         {	
-                                           echo "<li value=".$data['id_t']."><a href='index?page=categorie&cat=".$data['id_t']."'>".$data['nom']."</a></li>" ;
+                                           echo "<li value=".$data['id_f']."><a href='index?page=categorie&cat=".$data['id_f']."'>".$data['titre']."</a></li>" ;
                                         }
                                     ?>
                                     </ul>
                                   </li>
-                                    <li><a href="index?page=article">Tous les articles</a></li>
                                     <li><a href="index?page=gerer_flux">Gerer Flux</a></li>
                                     <li><a href="index?page=gerer_cat">Gerer categorie </a>
-                                    <li><a href="index?page=rss">Mettre à jour le Flux</a>
                                     </li>    
                                 </ul>
                                 <?php

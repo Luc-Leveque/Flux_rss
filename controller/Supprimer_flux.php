@@ -8,8 +8,7 @@ if(isset($_GET['id_f'])){
     supprimer_flux($id_f,$id_t) ;
     header("Location:index.php?page=gerer_$supp");
 }
-
-supprimer_cat($id_t) ; 
+ 
 header("Location:index.php?page=gerer_$supp");
 
 ?>
