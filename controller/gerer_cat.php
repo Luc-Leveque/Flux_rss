@@ -2,12 +2,14 @@
 
 require "Model/gerer_flux.php";
 
+$req = lescats();
+
 if(isset($_POST['submit'])){
 	if(isset($_POST['nom']) && !empty($_POST['nom']) && preg_match("#^([A-Z]([a-z]){1,})|([A-Za-z0-9 -_]{1,})$#",$_POST['nom'])){
                 $nom = $_POST['nom'];
            
                     
-            ajout_une_cat($nom ) ;
+            ajout_une_cat($nom);
 			
 			$reussite = '<div class="alert alert-success">
 			Le flux a était ajouter à la base de données  </div> ';
@@ -17,56 +19,6 @@ if(isset($_POST['submit'])){
         $erreur = '<div class="alert alert-warning"> <strong>Warning!</strong>Veullez saisir un Nom dans le bon</div>' ;
 	}
 }
-	
-?>
-    <?php if(isset($erreur) && !empty($erreur) ) {echo $erreur ; } ?>
-        </br>
-        </br>
-        <?php if(isset($reussite) && !empty($reussite) ) {echo $reussite ; } ?>
-            </br>
-            </br>
-            <form method="post" class="form-horizontal" action="#" class="form">
-                <div class="form-group">
-                    <label for="nom" class="col-sm-3 control-label">Nom Categorie:</label>
-                    <div class="col-sm-9">
-                        <input class="form-control" type="text" name="nom" value=""> </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-9 col-sm-offset-3">
-                        <button type="submit" name="submit" class="btn btn-primary pull-left" data-somestringvalue-text="Loading Finished" autocomplete="off">Ajouter</button>
-                    </div>
-                </div>
-            </form>
-            <div class="contenaire">
-                <div class="row">
-                    <div class="col-xs-7 col-xs-offset-2">
-                        <h1>Categorie :</h1>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                </tr>
-                            </thead>
-                            <?php
-                            $req = 'SELECT * FROM theme   ';
-                            $requete = $bdd->query($req);
 
-                            while($data = $requete->fetch())
-                            {
-                            ?>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <?php echo $data['nom']; ?>
-                                        </td>
-                                        <td> <a href='<?php echo "index.php?page=Supprimer_flux&supp=cat&id_t=".$data['id_t'] ; ?>'>Supprimer </a> </td>
-                                    </tr>
-                                </tbody>
-                                <?php
-}
-echo "</table>";
+require "view/gerer_cat.php";
 ?>
-                    </div>
-                </div>
-            </div>
-</div>

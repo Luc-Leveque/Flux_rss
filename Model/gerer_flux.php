@@ -88,4 +88,34 @@ function supprimer_cat($id_t){
 
 
 
+function lesthemes(){
+        
+    global $bdd;
+
+    $req = $bdd->prepare("SELECT * FROM theme  ");
+    $req->execute();
+    return($req);
+    
+}
+
+function lescats(){
+        
+    global $bdd;
+
+    $req = $bdd->prepare("SELECT * FROM flux f , theme t , appartenir a where f.id_f = a.id_f and a.id_t=t.id_t ");
+    $req->execute();
+    return($req);
+    
+}
+
+function req($id){
+        
+    global $bdd;
+
+    $req = $bdd->prepare("SELECT * FROM flux f , theme t , appartenir a where f.id_f = a.id_f and a.id_t=t.id_t  and f.id_f=:id ");
+    $req->execute(array(':id' => $id));
+    return($req);
+    
+}
+
 

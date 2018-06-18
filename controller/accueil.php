@@ -6,7 +6,7 @@ require "Model/article.php"; ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-sm-10 col-md-offset-2">
-                <h1>Les derniers articles<?php if(!isset($_SESSION['connecte'])){ echo "(connectez vous pour voir plus de contenu)" ; } ?></h1>
+                <h1>Les derniers articles</h1>
             </div>
         </div>
     </div>
